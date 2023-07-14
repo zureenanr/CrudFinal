@@ -35,20 +35,20 @@ include ('config.php');
 </tr>
             <?php
             
-            $sql= "SELECT * FROM pekerja ORDER BY id";
+            $sql= "SELECT * FROM user_pekerja ORDER BY id";
             $data= mysqli_query($conn, $sql);
             $id= 1;
-            while ($pekerja = mysqli_fetch_array($data)){
+            while ($user_pekerja = mysqli_fetch_array($data)){
             ?>
             <tr>
-               <td><?php echo $pekerja ['id']; ?></td>
-               <td><?php echo $pekerja ['nama_pekerja']; ?></td>
-               <td><?php echo $pekerja ['no_kp']; ?></td>
-               <td><?php echo $pekerja ['no_hp']; ?></td>
-               <td><?php echo $pekerja ['jantina']; ?></td>
+               <td><?php echo $user_pekerja ['id']; ?></td>
+               <td><?php echo $user_pekerja ['nama_pekerja']; ?></td>
+               <td><?php echo $user_pekerja ['no_kp']; ?></td>
+               <td><?php echo $user_pekerja ['no_hp']; ?></td>
+               <td><?php echo $user_pekerja ['jantina']; ?></td>
              
                <td>
-                <button type="button" class="btn btn-danger"><a href="delete.php?no_kp=<?php echo $pekerja['no_kp']; ?>">Delete</a> </button>
+                <button type="button" class="btn btn-danger"><a href="delete.php?no_kp=<?php echo $user_pekerja['no_kp']; ?>">Delete</a> </button>
                <button type="button" class="btn btn-info"><a href="update.php">Update</a> </button>     
             </td>
             </tr>

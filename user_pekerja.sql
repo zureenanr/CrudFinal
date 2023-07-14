@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 14, 2023 at 05:42 AM
+-- Generation Time: Jul 14, 2023 at 06:29 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -24,38 +24,34 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pekerja`
+-- Table structure for table `user_pekerja`
 --
 
-CREATE TABLE `pekerja` (
+CREATE TABLE `user_pekerja` (
   `id` int(3) NOT NULL,
-  `nama_pekerja` varchar(50) NOT NULL,
-  `no_kp` varchar(12) NOT NULL,
-  `jantina` varchar(50) NOT NULL,
-  `no_hp` varchar(50) NOT NULL
+  `nama_pekerja` varchar(30) NOT NULL,
+  `no_kp` varchar(30) NOT NULL,
+  `jantina` varchar(30) NOT NULL,
+  `no_hp` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `pekerja`
+-- Dumping data for table `user_pekerja`
 --
 
-INSERT INTO `pekerja` (`id`, `nama_pekerja`, `no_kp`, `jantina`, `no_hp`) VALUES
-(10, 'ALLYSSA ', '010827384900', 'Perempuan', '01122937348'),
-(2, 'MUHAMMAD ANAS BIN SUHAIMI', '030531100199', 'Lelaki', '0169520918'),
-(4, 'ISHUARIYAA A/P PONAN', '030610080616', 'Perempuan', '01133688927'),
-(0, 'NUR AYU NAZUREEN ', '030621101988', 'Perempuan', '0176238393'),
-(1, 'ANIQ NAUFAL BIN SALEHUDDIN', '031021101671', 'Lelaki', '801117141009'),
-(6, 'ANIS ZAHIRA BINTI AZRAF', '080820106422', 'Perempuan', '019260624'),
-(5, 'MUHAMMAD ADAM BIN NAZRI', '850902140975', 'Lelaki', '0133138765');
+INSERT INTO `user_pekerja` (`id`, `nama_pekerja`, `no_kp`, `jantina`, `no_hp`) VALUES
+(1, 'NUR AYU NAZUREEN ', '030621101988', 'Perempuan', '0176238393'),
+(3, 'ALLYSSA ', '20828160168', 'Perempuan', '0148753215'),
+(2, 'MUHAMMAD ANAS BIN SUHAIMI', '21013031452', 'Lelaki', '0156758495');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `pekerja`
+-- Indexes for table `user_pekerja`
 --
-ALTER TABLE `pekerja`
+ALTER TABLE `user_pekerja`
   ADD PRIMARY KEY (`no_kp`);
 COMMIT;
 

@@ -4,7 +4,7 @@ if(isset($_GET ['no_kp'])){
     $no_kp = $_GET ['no_kp'];
 }
 $samb = mysqli_connect($sname, $unmae, $password, $db_name);
-$sql = "DELETE FROM pekerja WHERE no_kp = '$no_kp'";
+$sql = "DELETE FROM user_pekerja WHERE no_kp = '$no_kp'";
 $hasil = mysqli_query($samb, $sql);
  if ($hasil == TRUE)
  {
@@ -42,7 +42,7 @@ echo "<script>alert('Tidak berjaya padam rekod')</script>";
         <h5>Sila Pastikan dengan betul!</h5>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary"><a href="delete.php?no_kp=<?php echo $pekerja['no_kp']; ?>">YES DELETE!</a> </button>
+        <button type="button" class="btn btn-primary"><a href="delete.php?no_kp=<?php echo $user_pekerja['no_kp']; ?>">YES DELETE!</a> </button>
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">CANCEL</button>
       </div>
     </div>

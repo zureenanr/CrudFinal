@@ -9,7 +9,7 @@ if(isset($_POST['no_kp'])) {
     $jantina = $_POST['jantina'];
 
 
-    $sql = "UPDATE pekerja SET id ='$id', nama_pekerja = '$nama_pekerja', no_hp = '$no_hp', jantina = '$jantina'  WHERE  no_kp = '$no_kp'";
+    $sql = "UPDATE user_pekerja SET id ='$id', nama_pekerja = '$nama_pekerja', no_hp = '$no_hp', jantina = '$jantina'  WHERE  no_kp = '$no_kp'";
     $hasil = mysqli_query($conn, $sql);
     if ($hasil) {
         echo "<script>alert('Berjaya ditambah kemaskini')
@@ -19,15 +19,15 @@ if(isset($_POST['no_kp'])) {
        
     }
 }
-    $sql = "SELECT * FROM pekerja";
+    $sql = "SELECT * FROM user_pekerja";
     $hasil = mysqli_query($conn, $sql);
-    while ($pekerja = mysqli_fetch_array($hasil)) {
+    while ($user_pekerja = mysqli_fetch_array($hasil)) {
 
-        $id = $pekerja['id'];
-        $nama_pekerja = $pekerja['nama_pekerja'];
-        $no_kp = $pekerja['no_kp'];
-        $jantina = $pekerja['jantina'];
-        $no_hp = $pekerja ['no_hp'];
+        $id = $user_pekerja['id'];
+        $nama_pekerja = $user_pekerja['nama_pekerja'];
+        $no_kp = $user_pekerja['no_kp'];
+        $jantina = $user_pekerja['jantina'];
+        $no_hp = $user_pekerja ['no_hp'];
     }
 ?>
 

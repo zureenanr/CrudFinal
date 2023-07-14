@@ -9,7 +9,7 @@ if (isset($_POST['submit'])) {
     $jantina= $_POST['jantina'];
     $no_hp= $_POST['no_hp'];
 
-    $sql = "INSERT INTO pekerja (id, nama_pekerja, no_kp, jantina, no_hp)
+    $sql = "INSERT INTO user_pekerja (id, nama_pekerja, no_kp, jantina, no_hp)
     VALUES ('$id', '$nama_pekerja', '$no_kp', '$jantina', '$no_hp')";
 
     $conn = mysqli_connect($sname, $unmae, $password, $db_name);
