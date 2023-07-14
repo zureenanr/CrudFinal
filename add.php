@@ -1,6 +1,7 @@
 <?php
 include ('config.php');
-if (isset($_POST['tambah'])) {
+
+if (isset($_POST['submit'])) {
 
     $id = $_POST['id'];
     $nama_pekerja = $_POST['nama_pekerja'];
@@ -11,18 +12,18 @@ if (isset($_POST['tambah'])) {
     $sql = "INSERT INTO pekerja (id, nama_pekerja, no_kp, jantina, no_hp)
     VALUES ('$id', '$nama_pekerja', '$no_kp', '$jantina', '$no_hp')";
 
-    $conn= mysqli_connect($sname, $unmae, $password, $db_name);
+    $conn = mysqli_connect($sname, $unmae, $password, $db_name);
     $hasil = mysqli_query($conn, $sql);
 
     if ($hasil) {
         echo "<script>alert('Berjaya Tambah')
         window.location='index.php'</script>";
+        
        
-     } else{
+      }else{
         echo "<script>alert('Gagal Tambah!')
         window.location='add.php'</script>";
-       
-    }
+    }   
 }
 ?>
 
@@ -41,11 +42,16 @@ if (isset($_POST['tambah'])) {
 
 <body>
 <div class="shadow"><button type="button" class="btn btn-success"><a href="index.php"> BACK </a></button></p>
-
+<h4>ADD MAKLUMAT</h4>
     <center>
-    <h4>ADD MAKLUMAT</h4>
     <form method="POST">
+        
     <fieldset>
+
+    ID <br>
+    <input type="text" name="id" id = "id">
+    <br>
+
     IC <br>
     <input type="text" name="no_kp" id = "no_kp">
     <br>
@@ -61,12 +67,12 @@ if (isset($_POST['tambah'])) {
     JANTINA <br>
     <select class="form-select" name="jantina" id="jantina" aria-label="select">
         <option selected>--Sila Pilih--</option>
-        <option value="1">Perempuan</option>
-        <option value="2">Lelaki</option>
+        <option id="perempuan" value="Perempuan">Perempuan</option>
+        <option id="lelaki" value="Lelaki">Lelaki</option>
     </select>
     <br><br>
 
-        <button id="add" name="tambah"><a href="index.php">Add</a></button>
+        <button name="submit">Add</a></button>
         <button type="reset">Clear</button>
     </form>
     </center>

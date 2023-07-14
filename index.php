@@ -1,31 +1,5 @@
 <?php
-include "config.php";
-
-if (isset($_POST['no_kp'])) {
-
-    $id = $_POST['id'];
-    $nama_pekerja = $_POST['nama_pekerja'];
-    $no_kp = $_POST['no_kp'];
-    $jantina= $_POST['jantina'];
-    $no_hp= $_POST['no_hp'];
-
-    $sql = "INSERT INTO pekerja (id, nama_pekerja, no_kp, jantina, no_hp)
-    VALUES ('$id', '$nama_pekerja', '$no_kp', '$jantina', '$no_hp')";
-
-    $conn= mysqli_connect($sname, $unmae, $password, $db_name);
-    $hasil = mysqli_query($conn, $sql);
-
-    if ($hasil) {
-        echo "<script>alert('Berjaya Tambah')
-        window.location='index.php'</script>";
-       
-     } else{
-        echo "<script>alert('Gagal Tambah!')
-        window.location='add.php'</script>";
-       
-    }
-}
-
+include ('config.php');
 ?>
 
 
@@ -60,8 +34,8 @@ if (isset($_POST['no_kp'])) {
            
 </tr>
             <?php
-            $conn = mysqli_connect($sname, $unmae, $password, $db_name);
-            $sql= "SELECT * FROM pekerja ORDER BY no_kp";
+            
+            $sql= "SELECT * FROM pekerja ORDER BY id";
             $data= mysqli_query($conn, $sql);
             $id= 1;
             while ($pekerja = mysqli_fetch_array($data)){
@@ -73,7 +47,8 @@ if (isset($_POST['no_kp'])) {
                <td><?php echo $pekerja ['no_hp']; ?></td>
                <td><?php echo $pekerja ['jantina']; ?></td>
              
-               <td><button type="button" class="btn btn-danger"><a href="delete.php?no_kp=<?php echo $pekerja['no_kp']; ?>">Delete</a> </button>
+               <td>
+                <button type="button" class="btn btn-danger"><a href="delete.php?no_kp=<?php echo $pekerja['no_kp']; ?>">Delete</a> </button>
                <button type="button" class="btn btn-info"><a href="update.php">Update</a> </button>     
             </td>
             </tr>

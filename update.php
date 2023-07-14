@@ -9,7 +9,7 @@ if(isset($_POST['no_kp'])) {
     $jantina = $_POST['jantina'];
 
 
-    $sql = "UPDATE pekerja SET id ='$id',nama_pekerja = '$nama_pekerja', no_hp = '$no_hp', jantina = '$jantina'  WHERE  no_kp = '$no_kp'";
+    $sql = "UPDATE pekerja SET id ='$id', nama_pekerja = '$nama_pekerja', no_hp = '$no_hp', jantina = '$jantina'  WHERE  no_kp = '$no_kp'";
     $hasil = mysqli_query($conn, $sql);
     if ($hasil) {
         echo "<script>alert('Berjaya ditambah kemaskini')
@@ -24,10 +24,10 @@ if(isset($_POST['no_kp'])) {
     while ($pekerja = mysqli_fetch_array($hasil)) {
 
         $id = $pekerja['id'];
-        $no_kp = $pekerja['no_kp'];
         $nama_pekerja = $pekerja['nama_pekerja'];
-        $no_hp = $pekerja ['no_hp'];
+        $no_kp = $pekerja['no_kp'];
         $jantina = $pekerja['jantina'];
+        $no_hp = $pekerja ['no_hp'];
     }
 ?>
 
@@ -45,26 +45,33 @@ if(isset($_POST['no_kp'])) {
 
     <form method="POST">
         <fieldset>
+
         <center>
-        <p>UPDATE MAKLUMAT ANIQ NAUFAL BIN MUHAMMAD AZRAEI</p>
+        <p>UPDATE MAKLUMAT <?php echo $nama_pekerja;?> </p>
+        <form action="update.php" method="post">
+
+        ID <br>
+        <input type="text" name="id" value = '<?php echo $id;?>'>
+        <br>
+
         IC <br>
-        <input type="text" name="no_kp" id = "no_kp">
+        <input type="text" name="no_kp" value = '<?php echo $no_kp;?>'>
         <br>
 
         NAMA<br>
-        <input type="text" name="nama_pekerja" id = "nama_pekerja">
+        <input type="text" name="nama_pekerja" value = '<?php echo $nama_pekerja;?>'>
         <br>
 
         HP<br>
-        <input type="text" name="no_hp" id = "no_hp">
+        <input type="text" name="no_hp" value = '<?php echo $no_hp;?>'>
         <br>
 
 
         JANTINA <br>
-            <select class="form-select" aria-label="select">
+            <select class="form-select" aria-label="select" >
             <option selected>--Sila Pilih--</option>
-            <option value="1">Perempuan</option>
-            <option value="2">Lelaki</option>
+            <option value='<?php echo $jantina;?>'>Perempuan</option>
+            <option value='<?php echo $jantina;?>'>Lelaki</option>
 
         </select><br>
                 
